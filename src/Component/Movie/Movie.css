@@ -1,0 +1,32 @@
+.movies-item{
+height: 25rem;
+width: 15rem;
+/* transition: transform 0.5s; */
+}
+.movies-poster{
+    height: 85%;
+    width: 100%;
+}
+.movies-poster img{
+height: 100%;
+width: 100%;
+}
+.movies-item:hover{
+    transform :scale(1.1);
+}
+.movies-details{
+    height: 15%;
+    width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+overflow: hidden;
+color: white;
+background-color: rgb(65, 61, 61);
+padding:25px ;
+}
+.movies-title{
+    height: 3rem;
+    width: 10rem;
+    overflow: hidden;
+}

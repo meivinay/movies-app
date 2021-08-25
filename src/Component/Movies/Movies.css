@@ -1,0 +1,7 @@
+.movies{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap:2rem;
+    padding: 10px;
+}

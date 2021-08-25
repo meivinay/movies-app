@@ -1,0 +1,43 @@
+.movie-page{
+height: 90vh;
+width: 100%;
+position: relative;
+background-color: black;
+}
+.movie-poster{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.movie-poster img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.movie-details{
+    position: absolute;
+    top: 0px;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:100%;
+}
+.movie-name-overview{
+    height: 30%;
+}
+.movie-trailer{
+height: 70%;
+width: 100%;
+}
+.movie-trailer div{
+    height: 100%;
+    width: 100%;
+}
+.movie-trailer iframe{
+    height: 100%;
+    width: 100%;
+}
