@@ -17,7 +17,7 @@ import {BrowserRouter as Router , generatePath, Route, Switch} from "react-route
 class App extends Component {
   state = {
     moviesData: [],
-    defaultMovie: "batman",
+    defaultMovie: "lord of the rings",
     pages:[],
     currPage:1
   };
