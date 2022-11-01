@@ -29,8 +29,7 @@ async componentDidMount(){
                 <div className="movies-details">
                     <div className = "movies-title">{title}</div>
                     <div className ="other-details">
-                    <div className = "movies-genre">genre</div>
-                    <div className ="movies-rating">IMDB {vote_average}</div>
+                    <div className ="movies-rating">IMDB&nbsp;{vote_average}</div>
                     </div>
                 </div>
 

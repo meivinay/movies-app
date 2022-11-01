@@ -7,7 +7,7 @@ import Header from './Component/Header/Header';
 import Pagination from './Component/Pagination/Pagination';
 import MovieDetail from './Component/MovieDetail/MovieDetail';
 import Favourite from './Component/Favourite/Favourite';
-import {BrowserRouter as Router , generatePath, Route, Switch} from "react-router-dom"
+import {BrowserRouter as Router , Route, Switch} from "react-router-dom"
 
 // Header ==> Header always visible
 // Movies ==> Simply return multiple "Movie"(Component) cards
@@ -17,7 +17,7 @@ import {BrowserRouter as Router , generatePath, Route, Switch} from "react-route
 class App extends Component {
   state = {
     moviesData: [],
-    defaultMovie: "lord of the rings",
+    defaultMovie: "avengers",
     pages:[],
     currPage:1
   };
@@ -27,12 +27,13 @@ class App extends Component {
     axios.get(API_URL + "/search/movie", {
       params: { api_key: API_KEY, page: 1, query: this.state.defaultMovie }
     }).then((apiData) => {
+      console.log('api data', apiData)
       let pagesCount = apiData.data.total_pages;
       let totalPages = []
-      for(let i =1;i<=pagesCount;i++){
+      for(let i =1; i<=pagesCount; i++){
         totalPages.push(i);
       }
-      this.setState({ moviesData: apiData.data.results, pages: totalPages});
+      this.setState({ ...this.state, moviesData: apiData.data.results, pages: totalPages});
     })
   }
 
@@ -73,15 +74,16 @@ class App extends Component {
     })
   }
   render() {
+    console.log(this.state)
     return (
       <>
        <Router>
         <Header setMovies={this.setMovies}></Header>
         <Switch >
-          <Route exact path="/">
+          <Route exact path="/movies-app">
         {
           //conditonal render ... if api not working or wrong search than say movie not found
-          this.state.moviesData.length !== 0 ? <> <Movies movie={this.state.moviesData}></Movies>
+          this.state.moviesData.length > 0 ? <> <Movies movie={this.state.moviesData}></Movies>
            <Pagination setPage = {this.setPage} 
                        previousPage = {this.previousPage}
                        nextPage = {this.nextPage}
@@ -91,17 +93,14 @@ class App extends Component {
         }
           </Route>
         </Switch>
-
-          <Switch >
-        <Route exact path="/fav">
-            <Favourite></Favourite>
-        </Route>
-          </Switch>
-
-          <Switch>
-            <Route exact path="/moviedetails" component={MovieDetail}></Route>
-          </Switch>
-                
+        <Switch >
+      <Route exact path="/fav">
+          <Favourite></Favourite>
+      </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/moviedetails" component={MovieDetail}></Route>
+        </Switch>                
         </Router>
       </>
     );

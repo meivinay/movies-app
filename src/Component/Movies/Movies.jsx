@@ -6,9 +6,7 @@ import "./Movies.css"
 // we can solve this(Props Drilling) using ContextApi or Redux
 
 class Movies extends Component {
-     
-    render() { 
-      
+  render() { 
         return (
         <div className ="movies"> 
         {this.props.movie.map((movieObject) => {
