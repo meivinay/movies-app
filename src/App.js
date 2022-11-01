@@ -80,7 +80,7 @@ class App extends Component {
        <Router>
         <Header setMovies={this.setMovies}></Header>
         <Switch >
-          <Route exact path="/movies-app">
+          <Route exact path="/moviesapp">
         {
           //conditonal render ... if api not working or wrong search than say movie not found
           this.state.moviesData.length > 0 ? <> <Movies movie={this.state.moviesData}></Movies>

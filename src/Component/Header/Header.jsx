@@ -20,7 +20,7 @@ handleOnChange = (e)=>{
             <input type="text" placeholder="search" onChange={(e)=>{this.handleOnChange(e)}} onKeyPress={(e)=>{this.handleSearch(e)}} />
             <div className= "header-links">
                 <div className = "home-link">
-                    <Link to="/movies-app">Home</Link>
+                    <Link to="/moviesapp">Home</Link>
                 </div>
                 <div className = "favourite-link">
                     <Link to = "./fav">Favourite</Link>
